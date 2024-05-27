@@ -1,9 +1,8 @@
-import 'package:admin/models/RecentFile.dart';
+import 'package:admin/constants/constants.dart';
+import 'package:admin/models/data_job.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../constants.dart';
 
 class RecentFiles extends StatelessWidget {
   const RecentFiles({
@@ -22,7 +21,7 @@ class RecentFiles extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recent Files",
+            "Recent Users",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -32,18 +31,21 @@ class RecentFiles extends StatelessWidget {
               // minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("File Name"),
+                  label: Text("No"),
                 ),
                 DataColumn(
-                  label: Text("Date"),
+                  label: Text("Username"),
                 ),
                 DataColumn(
-                  label: Text("Size"),
+                  label: Text("Job "),
+                ),
+                DataColumn(
+                  label: Text("ACTIONS"),
                 ),
               ],
               rows: List.generate(
                 demoRecentFiles.length,
-                (index) => recentFileDataRow(demoRecentFiles[index]),
+                (index) => recentFileDataRow(demoRecentFiles[index], index + 1),
               ),
             ),
           ),
@@ -53,9 +55,12 @@ class RecentFiles extends StatelessWidget {
   }
 }
 
-DataRow recentFileDataRow(RecentFile fileInfo) {
+DataRow recentFileDataRow(RecentFile fileInfo, int index) {
   return DataRow(
     cells: [
+      DataCell(
+        Text((index).toString()),
+      ),
       DataCell(
         Row(
           children: [
@@ -71,8 +76,25 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
           ],
         ),
       ),
-      DataCell(Text(fileInfo.date!)),
-      DataCell(Text(fileInfo.size!)),
+      DataCell(Text(fileInfo.createAt!)),
+      DataCell(
+        Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.edit),
+              onPressed: () {
+                // Add edit action here
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                // Add delete action here
+              },
+            ),
+          ],
+        ),
+      ),
     ],
   );
 }

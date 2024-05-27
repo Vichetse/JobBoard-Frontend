@@ -1,10 +1,9 @@
+import 'package:admin/constants/constants.dart';
 import 'package:admin/controllers/MenuAppController.dart';
-import 'package:admin/responsive.dart';
+import 'package:admin/components/Responsive/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-
-import '../../../constants.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -62,7 +61,7 @@ class ProfileCard extends StatelessWidget {
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-              child: Text("Angelina Jolie"),
+              child: Text("Admin"),
             ),
           Icon(Icons.keyboard_arrow_down),
         ],
@@ -80,7 +79,7 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        hintText: "Search",
+        hintText: "Search...",
         fillColor: secondaryColor,
         filled: true,
         border: OutlineInputBorder(

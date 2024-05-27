@@ -1,4 +1,4 @@
-import 'package:admin/constants.dart';
+import 'package:admin/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class CloudStorageInfo {
@@ -18,7 +18,7 @@ class CloudStorageInfo {
 
 List demoMyFiles = [
   CloudStorageInfo(
-    title: "Documents",
+    title: "Users",
     numOfFiles: 1328,
     svgSrc: "assets/icons/Documents.svg",
     totalStorage: "1.9GB",

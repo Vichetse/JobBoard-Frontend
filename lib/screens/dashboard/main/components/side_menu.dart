@@ -12,7 +12,16 @@ class SideMenu extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            child: Image.asset("assets/images/logo.png"),
+            child: Center(
+              child: Text(
+                'JobBoard',
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
           DrawerListTile(
             title: "Dashboard",
@@ -20,35 +29,20 @@ class SideMenu extends StatelessWidget {
             press: () {},
           ),
           DrawerListTile(
-            title: "Transaction",
+            title: "User",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {},
           ),
           DrawerListTile(
-            title: "Task",
+            title: "Employer",
             svgSrc: "assets/icons/menu_task.svg",
             press: () {},
           ),
-          DrawerListTile(
-            title: "Documents",
-            svgSrc: "assets/icons/menu_doc.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Store",
-            svgSrc: "assets/icons/menu_store.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Notification",
-            svgSrc: "assets/icons/menu_notification.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Profile",
-            svgSrc: "assets/icons/menu_profile.svg",
-            press: () {},
-          ),
+          // DrawerListTile(
+          //   title: "Notification",
+          //   svgSrc: "assets/icons/menu_notification.svg",
+          //   press: () {},
+          // ),
           DrawerListTile(
             title: "Settings",
             svgSrc: "assets/icons/menu_setting.svg",

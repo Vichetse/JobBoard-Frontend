@@ -1,8 +1,8 @@
-import 'package:admin/models/MyFiles.dart';
-import 'package:admin/responsive.dart';
+import 'package:admin/models/data_detail.dart';
+import 'package:admin/components/Responsive/responsive.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../constants/constants.dart';
 import 'file_info_card.dart';
 
 class MyFiles extends StatelessWidget {
@@ -19,7 +19,7 @@ class MyFiles extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "My Files",
+              "Admin",
               style: Theme.of(context).textTheme.titleMedium,
             ),
             ElevatedButton.icon(
