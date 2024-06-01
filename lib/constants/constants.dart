@@ -39,7 +39,6 @@ TextStyle ralewayStyle = GoogleFonts.raleway();
 List<RouteModel> navItem = [
   RouteModel(title: "Home", path: RoutePath.home),
   RouteModel(title: "Fine Job", path: RoutePath.finejob),
-  RouteModel(title: "Dashboard", path: RoutePath.dashboard),
   RouteModel(title: "Post A Job", path: RoutePath.postajob),
 ];
 

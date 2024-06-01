@@ -1,9 +1,25 @@
 import 'package:admin/Routes/route_path.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+class Header extends StatefulWidget {
+  const Header({super.key});
+
+  @override
+  State<Header> createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
+  void _logout() async {
+    try {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      await preferences.clear(); 
+      context.go(RoutePath.login); 
+    } catch (error) {
+      print("Error clearing preferences: $error");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +99,9 @@ class Header extends StatelessWidget {
           SizedBox(width: 20),
           if (screenWidth >= 800)
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                _logout();
+              },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero,
@@ -93,7 +111,7 @@ class Header extends StatelessWidget {
                 minimumSize: Size(110, 36),
               ),
               child: Text(
-                'Post A Job',
+                'Logout',
                 style: TextStyle(color: Colors.white),
               ),
             )

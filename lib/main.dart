@@ -3,13 +3,11 @@ import 'package:admin/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
       ),
-       routerConfig: MyWebRouter().router,  
+      routerConfig: MyWebRouter().router,
     );
   }
 }

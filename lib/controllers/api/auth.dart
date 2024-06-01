@@ -1,16 +1,19 @@
 import 'dart:convert';
+
+import 'package:admin/services/service.dart';
 import 'package:http/http.dart' as http;
 
-Future<Apiresponse> login (String email, String password) async {
-  Apiresponse apiresponse = Apiresponse();
-   final response = await http.post(
-      Uri.parse('/login'),
-      headers: {'Accept': 'application/json'},
-      body:('email':email, 'password' :password)
+class Auth {
+  Future<http.Response> authentication(
+      Map<String, dynamic> data, String apiUrl) async {
+    var fullUrl = Uri.parse('$baseURL$apiUrl');
+    return await client.post(
+      fullUrl,
+      body: jsonEncode(data),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
     );
-    if (response.statusCode == 201) {
-      return apiresponse.data = User.fromJson(jsonDacode(response.body));
-    } else {
-      throw Exception('Failed to login!');
-    }
+  }
 }
